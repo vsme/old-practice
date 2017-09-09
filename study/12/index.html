@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟购物计算结果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        li ul li {
+            display: inline-block;
+        }
+
+        li ul {
+            margin: 10px;
+        }
+
+        input[type="button"] {
+            padding: 2px 10px;
+            font-size: 12px;
+            line-height: 12px;
+        }
+
+        input[type="text"] {
+            padding: 2px 10px;
+            font-size: 12px;
+            line-height: 12px;
+            width: 50px;
+        }
+
+        #con {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        #hj {
+            margin-left: 10px;
+            text-align: left;
+            font-size: 12px;
+            line-height: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oCon = document.getElementById("con");
+            var aUl = oCon.getElementsByTagName("ul");
+            var len = aUl.length;
+            var oDiv = document.getElementById("hj");
+            var arrNum = [];
+            var arrDj = [];
+            var allsl = Number;
+            var zgjg = Number;
+            var zj = Number;
+
+            for (var i = 0; i < len; i++) {
+                fn1(i);
+            }
+
+            function fn1(m) {
+                var ali = aUl[m].getElementsByTagName("li");
+                var btn1 = ali[0].getElementsByTagName("input")[0];
+                var inp = ali[1].getElementsByTagName("input")[0];
+                var btn2 = ali[2].getElementsByTagName("input")[0];
+                var dj = parseFloat(ali[3].getElementsByTagName("span")[0].innerHTML);
+
+                var xj = ali[4];
+
+
+                var sl = parseInt(inp.value);
+                arrNum.push(sl);
+                arrDj.push(dj);
+
+                function csh() {
+                    arrNum[m] = sl;
+                    allsl = 0;
+
+                    zgjg = 0;
+                    zj = 0;
+
+                    for (var i = 0; i < len; i++) {
+                        allsl += arrNum[i];
+                        zj = (zj * 10 + (arrNum[i] * (arrDj[i] * 10))) / 10;
+
+                        if (zgjg < arrDj[i]) {
+                            zgjg = arrDj[i];
+                        }
+                    }
+
+                    inp.value = sl;
+                    xj.innerHTML = "小计：" + (sl * (dj * 10)) / 10 + "元";
+                    oDiv.innerHTML = "商品合计：" + allsl + "件，共：" + zj + "元。<br>最贵商品单价：" + zgjg + "元";
+                }
+
+                csh();
+                btn2.onclick = function () {
+                    sl++;
+                    csh();
+                };
+                btn1.onclick = function () {
+                    sl--;
+                    if (sl < 0) {
+                        sl = 0;
+                    }
+                    csh();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<ul id="con">
+    <li>
+        <ul>
+            <li><input type="button" value="-"></li>
+            <li><input type="text" disabled value="0"></li>
+            <li><input type="button" value="+"></li>
+            <li>单价：<span>6.8</span>元</li>
+            <li>小计：0元</li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><input type="button" value="-"></li>
+            <li><input type="text" disabled value="0"></li>
+            <li><input type="button" value="+"></li>
+            <li>单价：<span>10.2</span>元</li>
+            <li>小计：0元</li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><input type="button" value="-"></li>
+            <li><input type="text" disabled value="0"></li>
+            <li><input type="button" value="+"></li>
+            <li>单价：<span>8.9</span>元</li>
+            <li>小计：0元</li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><input type="button" value="-"></li>
+            <li><input type="text" disabled value="0"></li>
+            <li><input type="button" value="+"></li>
+            <li>单价：<span>5.3</span>元</li>
+            <li>小计：0元</li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><input type="button" value="-"></li>
+            <li><input type="text" disabled value="0"></li>
+            <li><input type="button" value="+"></li>
+            <li>单价：<span>7</span>元</li>
+            <li>小计：0元</li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><input type="button" value="-"></li>
+            <li><input type="text" disabled value="0"></li>
+            <li><input type="button" value="+"></li>
+            <li>单价：<span>12.4</span>元</li>
+            <li>小计：0元</li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><input type="button" value="-"></li>
+            <li><input type="text" disabled value="0"></li>
+            <li><input type="button" value="+"></li>
+            <li>单价：<span>3</span>元</li>
+            <li>小计：0元</li>
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><input type="button" value="-"></li>
+            <li><input type="text" disabled value="0"></li>
+            <li><input type="button" value="+"></li>
+            <li>单价：<span>6</span>元</li>
+            <li>小计：0元</li>
+        </ul>
+    </li>
+
+    <div id="hj">计算中...</div>
+</ul>
+
+
+</body>
+</html>

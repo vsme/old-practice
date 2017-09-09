@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>九盛艺术画廊</title>
+
+  <link href="css/css.css" rel="stylesheet" type="text/css">
+  <link href="css/jdt.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-1.2.1.pack.js" type="text/javascript"></script>
+  <script src="js/slide.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    function MM_swapImgRestore() { //v3.0
+      var i, x, a = document.MM_sr; for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+    }
+    function MM_preloadImages() { //v3.0
+      var d = document; if (d.images) {
+        if (!d.MM_p) d.MM_p = new Array();
+        var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+          if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; }
+      }
+    }
+
+    function MM_findObj(n, d) { //v4.01
+      var p, i, x; if (!d) d = document; if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+        d = parent.frames[n.substring(p + 1)].document; n = n.substring(0, p);      
+      }
+      if (!(x = d[n]) && d.all) x = d.all[n]; for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+      for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+      if (!x && d.getElementById) x = d.getElementById(n); return x;
+    }
+
+    function MM_swapImage() { //v3.0
+      var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i = 0; i < (a.length - 2); i += 3)
+        if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
+    }
+
+  </script>
+</head>
+
+<body onLoad="MM_preloadImages('images/index2.png','images/arts2.png','images/jp2.png','images/news2.png','images/about2.png','images/find2.jpg')">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td height="140" align="center" valign="middle" class="topbg1">
+        <table width="960" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="44"></td>
+          </tr>
+          <tr>
+            <td height="15" align="center" valign="top"><a href="home.html"><img src="images/logo.png" width="330" height="15" alt=""/></a></td>
+          </tr>
+          <tr>
+            <td height="35"></td>
+          </tr>
+          <tr>
+            <td height="30" align="center">
+              <table width="960" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="200" height="30">&nbsp;</td>
+                  <td width="112" height="30" align="center"><a href="home.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('index','','images/index2.png',1)"><img src="images/index1.png" alt="" width="35" height="30" id="index"></a></td>
+                  <td width="112" height="30" align="center"><a href="arts.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('arts','','images/arts2.png',1)"><img src="images/arts1.png" alt="" width="53" height="30" id="arts"></a></td>
+                  <td width="112" height="30" align="center"><a href="jp.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('jp','','images/jp2.png',1)"><img src="images/jp1.png" alt="" width="83" height="30" id="jp"></a></td>
+                  <td width="112" height="30" align="center"><a href="news.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('news','','images/news2.png',1)"><img src="images/news1.png" alt="" width="57" height="30" id="news"></a></td>
+                  <td width="112" height="30" align="center"><a href="about.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('about','','images/about2.png',1)"><img src="images/about1.png" alt="" width="57" height="30" id="about"></a></td>
+                  <td width="200" height="30">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="16" align="center" valign="top"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="10" align="left" valign="top" class="topbg2"></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">
+        <table width="960" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="65" align="left" valign="middle">
+              <table width="960" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="700" height="65" align="left" valign="middle"><img src="images/zxjz.jpg" width="102" height="14" alt="" /></td>
+                  <td width="260" height="65" align="right" valign="middle"><a href="find.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('find','','images/find2.jpg',1)"><img src="images/find.jpg" alt="" width="60" height="22" id="find"></a></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="540" align="left" valign="top">
+              <!--大图轮换区-->
+              <DIV id="topstory">
+                <DIV id="highlight">
+                  <DIV id="featured">
+                    <!--标签开始 -->
+                    <DIV class=image id=image_xixi-01>
+                      <A title="照片1描述" href="pic.html" target=_blank>
+                        <IMG alt="照片1描述" src="images/1.jpg"> </A>
+                      <DIV class="word"> 名称：乐园之四<br> 作者：张伟
+                        <br> 规格：180X120CM
+                        <br> 分类：油画
+                        <br> 年代：2007
+                        <br> 价格：协商
+                        <br> 当前状态：出售中
+                        <br>
+                        <br> 张伟 男<br> 1977年生于江苏如东
+                        <br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。 <br>
+                        <br> 2000年 江苏省版画作品展（江苏省美术馆）<br>
+                        <br> 2002年 获江苏省版画作品展优秀作品奖（江苏省美术馆）获第六届全国高校版画年会探索奖<br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。
+                        <br>
+                      </DIV>
+                    </DIV>
+                    <!--标签结束 -->
+                    <DIV class=image id=image_xixi-02>
+                      <A title="照片2描述" href="#" target=_blank>
+                        <IMG alt="照片2描述" src="images/2.jpg"> </A>
+                      <DIV class="word"> 照片2对应段落<br> 作者：张伟
+                        <br> 规格：180X120CM
+                        <br> 分类：油画
+                        <br> 年代：2007
+                        <br> 价格：协商
+                        <br> 当前状态：出售中
+                        <br>
+                        <br> 张伟 男<br> 1977年生于江苏如东
+                        <br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。 <br>
+                        <br> 2000年 江苏省版画作品展（江苏省美术馆）<br>
+                        <br> 2002年 获江苏省版画作品展优秀作品奖（江苏省美术馆）获第六届全国高校版画年会探索奖<br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。
+                        <br>
+                      </DIV>
+                    </DIV>
+                    <DIV class=image id=image_xixi-03>
+                      <A title="照片3描述" href="#" target=_blank>
+                        <IMG alt="照片3描述" src="images/3.jpg"> </A>
+                      <DIV class="word"> 照片3对应段落<br> 作者：张伟
+                        <br> 规格：180X120CM
+                        <br> 分类：油画
+                        <br> 年代：2007
+                        <br> 价格：协商
+                        <br> 当前状态：出售中
+                        <br>
+                        <br> 张伟 男<br> 1977年生于江苏如东
+                        <br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。 <br>
+                        <br> 2000年 江苏省版画作品展（江苏省美术馆）<br>
+                        <br> 2002年 获江苏省版画作品展优秀作品奖（江苏省美术馆）获第六届全国高校版画年会探索奖<br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。
+                        <br>
+                      </DIV>
+                    </DIV>
+                    <DIV class=image id=image_xixi-04>
+                      <A title="照片4描述" href="#" target=_blank>
+                        <IMG alt="照片4描述" src="images/4.jpg"> </A>
+                      <DIV class="word"> 照片4对应段落 <br> 作者：张伟
+                        <br> 规格：180X120CM
+                        <br> 分类：油画
+                        <br> 年代：2007
+                        <br> 价格：协商
+                        <br> 当前状态：出售中
+                        <br>
+                        <br> 张伟 男<br> 1977年生于江苏如东
+                        <br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。 <br>
+                        <br> 2000年 江苏省版画作品展（江苏省美术馆）<br>
+                        <br> 2002年 获江苏省版画作品展优秀作品奖（江苏省美术馆）获第六届全国高校版画年会探索奖<br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。
+                        <br>
+                      </DIV>
+                    </DIV>
+                    <DIV class=image id=image_xixi-05>
+                      <A title="照片5描述" href="#" target=_blank>
+                        <IMG alt="照片5描述" src="images/5.jpg"> </A>
+                      <DIV class="word"> 照片5对应段落<br> 作者：张伟
+                        <br> 规格：180X120CM
+                        <br> 分类：油画
+                        <br> 年代：2007
+                        <br> 价格：协商
+                        <br> 当前状态：出售中
+                        <br>
+                        <br> 张伟 男<br> 1977年生于江苏如东
+                        <br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。 <br>
+                        <br> 2000年 江苏省版画作品展（江苏省美术馆）<br>
+                        <br> 2002年 获江苏省版画作品展优秀作品奖（江苏省美术馆）获第六届全国高校版画年会探索奖<br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。
+                        <br>
+                      </DIV>
+                    </DIV>
+                    <DIV class=image id=image_xixi-06>
+                      <A title="照片6描述" href="#" target=_blank>
+                        <IMG alt="照片6描述" src="images/6.jpg"> </A>
+                      <DIV class="word"> 照片6对应段落<br> 作者：张伟
+                        <br> 规格：180X120CM
+                        <br> 分类：油画
+                        <br> 年代：2007
+                        <br> 价格：协商
+                        <br> 当前状态：出售中
+                        <br>
+                        <br> 张伟 男<br> 1977年生于江苏如东
+                        <br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。 <br>
+                        <br> 2000年 江苏省版画作品展（江苏省美术馆）<br>
+                        <br> 2002年 获江苏省版画作品展优秀作品奖（江苏省美术馆）获第六届全国高校版画年会探索奖<br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。
+                        <br>
+                      </DIV>
+                    </DIV>
+                    <DIV class=image id=image_xixi-07>
+                      <A title="照片7描述" href="#" target=_blank>
+                        <IMG alt="照片7描述" src="images/7.jpg"> </A>
+                      <DIV class="word"> 照片7对应段落<br> 作者：张伟
+                        <br> 规格：180X120CM
+                        <br> 分类：油画
+                        <br> 年代：2007
+                        <br> 价格：协商
+                        <br> 当前状态：出售中
+                        <br>
+                        <br> 张伟 男<br> 1977年生于江苏如东
+                        <br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。 <br>
+                        <br> 2000年 江苏省版画作品展（江苏省美术馆）<br>
+                        <br> 2002年 获江苏省版画作品展优秀作品奖（江苏省美术馆）获第六届全国高校版画年会探索奖<br>
+                        <br> 2003年毕业于南京艺术学院美术学院版画系获学士学位，现任教于苏州工艺美院。
+                        <br>
+                      </DIV>
+                    </DIV>
+                  </DIV>
+                  <DIV id=thumbs>
+                    <UL>
+                      <LI class="btnqh">
+                        <IMG id=play_prev src="images/btn_prev.png"> </LI>
+                      <LI class="slideshowItem">
+                        <A id="thumb_xixi-01" href="#image_xixi-01">
+                          <IMG src="images/1.jpg"> </A>
+                      </LI>
+                      <LI class="slideshowItem">
+                        <A id="thumb_xixi-02" href="#image_xixi-02">
+                          <IMG src="images/2.jpg"> </A>
+                      </LI>
+                      <LI class="slideshowItem">
+                        <A id="thumb_xixi-03" href="#image_xixi-03">
+                          <IMG src="images/3.jpg"> </A>
+                      </LI>
+                      <LI class="slideshowItem">
+                        <A id="thumb_xixi-04" href="#image_xixi-04">
+                          <IMG src="images/4.jpg">
+                        </A>
+                      </LI>
+                      <LI class="slideshowItem">
+                        <A id="thumb_xixi-05" href="#image_xixi-05">
+                          <IMG src="images/5.jpg"> </A>
+                      </LI>
+                      <LI class="slideshowItem">
+                        <A id="thumb_xixi-06" href="#image_xixi-06">
+                          <IMG src="images/6.jpg"> </A>
+                      </LI>
+                      <LI class="last_img slideshowItem">
+                        <A id="thumb_xixi-07" href="#image_xixi-07">
+                          <IMG src="images/7.jpg"> </A>
+                      </LI>
+                      <LI class="btnqh">
+                        <IMG id=play_next src="images/btn_next.png"> </LI>
+                    </UL>
+                  </DIV>
+                  <SCRIPT type=text/javascript>
+                    var target = ["xixi-01","xixi-02","xixi-03","xixi-04","xixi-05","xixi-06","xixi-07"];
+
+                  </SCRIPT>
+                </DIV>
+              </DIV>
+            </td>
+          </tr>
+          <tr>
+            <td height="50" valign="bottom"><img src="images/index-fgx.jpg" width="960" height="24" alt="" /></td>
+          </tr>
+          <tr>
+            <td height="300" align="left" valign="top">
+              <table width="960" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="660" height="300" align="left" valign="top">
+                    <table width="660" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="660" height="30">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td width="660" height="50" align="left" valign="top"><img src="images/sm.jpg" width="43" height="14" alt="" /></td>
+                      </tr>
+                      <tr>
+                        <td width="660" height="220" align="left" valign="top" class="nr">1、本网站所有作品保真销售；<br> 2、凡在本网站购买的作品，如发现有一幅复制品、印刷品，本画廊包赔100倍损失；本店愿承担一切法律责任；
+                          <br> 3、本画廊近期受到一些别有用心者恶意伤害，请广大藏家明辨是非。
+                          <br><br><br>
+
+                          <a href="about.html" class="dblj">关于本站 </a></td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="40" height="300" align="left" valign="top">&nbsp;</td>
+                  <td width="260" height="300" align="left" valign="top">
+                    <table width="260" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="260" height="30">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td width="260" height="50" align="left" valign="top"><img src="images/lxfs.jpg" width="73" height="14" alt="" /></td>
+                      </tr>
+                      <tr>
+                        <td width="260" height="220" align="left" valign="top" class="nr">地址：江苏省苏州市 <br> 邮箱：0000000@00.com <br> QQ:000000000 <br> 电话：13000000000
+                          <br>
+                          <br>
+                          <a href="about.html" class="dblj">查看更多</a></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="10" align="left" valign="top" class="dbbg1"></td>
+    </tr>
+    <tr>
+      <td height="140" align="center" valign="middle" class="dbbg2">
+        <table width="960" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="140" align="center" valign="middle" class="nr">联系方式 &nbsp;邮箱：0000000@00.com&nbsp;&nbsp;QQ:000000000&nbsp;&nbsp;电话：13000000000 &nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/"
+                class="dblj">苏IPC备000000000号</a><br> Copyright 2014 by <a href="http://jiushengart.com" class="dblj">jiushengart.com</a>&nbsp;&nbsp;Powered
+              by <a href="http://uicry.com/" class="dblj">Yaavi</a>.</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

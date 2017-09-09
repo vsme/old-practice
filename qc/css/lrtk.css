@@ -1,0 +1,64 @@
+/*reset*/
+ul,li,p,h1,h2,h3,h4,h5,body{margin:0px;padding:0px;}
+ul,li,dl,dd,dt{list-style: none;}
+a img{
+}
+/*banner*/
+.banner_index{
+	height: 300px;
+	overflow: hidden;
+	width: 750px;
+	position: relative;
+}
+.banner_index .btn,.banner_pro .bBtn{
+	position: absolute;
+	top: 124px;
+	display: block;
+	z-index: 3;
+	width: 33px;
+	height: 33px;
+}
+.banner_index .btnPre,.banner_pro .bPre{
+	background: url(../images/bg_btnPre_index.png) no-repeat 0 0;
+}
+.banner_index .btnPre:hover,.banner_pro .bPre:hover{background: url(../images/bg_btnPre_index_hover.png) no-repeat 0 0;}
+.banner_index .btnNext,.banner_pro .bNext{
+	background: url(../images/bg_btnNext_index.png) no-repeat 0 0;
+	right: 48px;
+}
+.banner_index .btnNext:hover,.banner_pro .bNext:hover{background: url(../images/bg_btnNext_index_hover.png) no-repeat 0 0;}
+.banner_index .banner_wrap{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 2;
+	width: 750px;
+	height: 1203px;
+}
+.banner_index .banner_wrap li{
+	width: 1220px;
+	float: left;
+}
+.indexBanner_num{
+	width: 750px;
+	text-align: center;
+	margin-top: 10px;
+} 
+.indexBanner_num a{
+	width: 8px;
+	height: 8px;
+	display: inline-block;
+	_zoom: 1;
+	background: url(../images/bg_num.png) no-repeat 0 0;
+	font-size: 0px;
+	margin: 0 1px;
+}
+.indexBanner_num a.on,.indexBanner_num a:hover{background: url(../images/bg_num_on.png) no-repeat 0 0;}
+.xialays {
+	background-color: #262624;
+	color: #E6CE97;
+	font-family: "微软雅黑", "宋体", "新宋体", Arial;
+	font-size: 12px;
+	border-width: 0px;
+	border-color: #E6CE97;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表展开折叠</title>
+    <style>
+        ul, li, h2 {
+            margin: 0;
+            padding: 0;
+            transition: all 0.2s;
+        }
+
+        #ul1 {
+            margin: 20px auto;
+            width: 200px;
+        }
+
+        #ul1 li {
+            list-style: none;
+        }
+
+        .list li, .list h2 {
+            list-style: none;
+            border: solid 1px #aaaaaa;
+            margin-top: -1px;
+        }
+
+        .list li {
+            line-height: 22px;
+            font-size: 14px;
+            padding-left: 22px;
+        }
+
+        .list h2 {
+            padding-left: 20px;
+            line-height: 28px;
+            font-size: 18px;
+            background: #dedede url(img/ico1.gif) no-repeat 5px 9px;
+        }
+
+        h2.active {
+            background: #fa4 url(img/ico2.gif) no-repeat 5px 9px;
+        }
+
+        .list ul {
+            display: none;
+        }
+
+        .bgy {
+            background-color: #fc6;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oUl = document.getElementById("ul1");
+            var aUl = oUl.getElementsByTagName("ul");
+            var aH2 = oUl.getElementsByTagName("h2");
+            var wlen = aUl.length;
+            var aLi = null;
+            var arrLi = [];
+
+            /*折叠其他的所有*/
+            function zhedie() {
+                for (var j = 0; j < wlen; j++) {
+                    aUl[j].style.display = "none";
+                    aH2[j].className = "";
+                }
+            }
+
+            for (var i = 0; i < wlen; i++) {
+                aH2[i].index = i;
+                aH2[i].onclick = function () {
+                    if (this.className == "") {
+                        zhedie();
+                        qcli();
+                        aUl[this.index].style.display = "block";
+                        this.className = "active";
+                    } else {
+                        zhedie();
+                        qcli();
+                        aUl[this.index].style.display = "none";
+                        this.className = ""
+                    }
+                }
+            }
+
+            for (var m = 0; m < wlen; m++) {
+                aLi = aUl[m].getElementsByTagName("li");
+                var ilen = aLi.length;
+                for (var n = 0; n < ilen; n++) {
+                    arrLi.push(aLi[n]);
+                }
+            }
+            var arrlen = arrLi.length;
+
+            function qcli() {
+                for (var o = 0; o < arrlen; o++) {
+                    arrLi[o].className = "";
+                }
+            }
+
+            for (var l = 0; l < arrlen; l++) {
+                arrLi[l].onclick = function () {
+                    if (this.className == "") {
+                        qcli();
+                        this.className = "bgy";
+                    } else {
+                        qcli();
+                        this.className = "";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li class="list">
+        <h2>我的好友</h2>
+        <ul>
+            <li>张三</li>
+            <li>李四</li>
+            <li>王五</li>
+            <li>席聪聪</li>
+            <li>小凡</li>
+        </ul>
+    </li>
+    <li class="list">
+        <h2>工作</h2>
+        <ul>
+            <li>谢美红</li>
+            <li>杨涛</li>
+            <li>小双</li>
+            <li>王二小</li>
+        </ul>
+    </li>
+    <li class="list">
+        <h2>黑名单</h2>
+        <ul>
+            <li>二狗</li>
+            <li>狗蛋</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

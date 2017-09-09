@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝广告图轮播</title>
+    <style>
+        *{
+            transition: all 200ms;
+        }
+        #lb{
+            width: 300px;
+            height: 150px;
+            position: relative;
+            left: 50%;
+            margin-left: -150px;
+            padding: 2px;
+            border: 1px #666666 solid;
+        }
+        #lb ul:first-child{
+            margin: 0 0 0 1px;
+            padding: 0;
+            float: left;
+        }
+        #lb ul:last-child{
+            margin: 0 1px 0 0;
+            padding: 0;
+            float: right;
+        }
+        li{
+            list-style: none;
+            height: 21px;
+            width: 70px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 23px;
+            border-radius: 3px;
+            border: 1px solid #666666;
+            margin-bottom: 2px;
+            cursor: pointer;
+        }
+        li.active{
+            background: #ccc;
+        }
+        li:first-child{
+            margin-top: 1px;
+        }
+        img{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 77px;;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+
+            var aImg=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg","img/6.jpg","img/7.jpg"];
+            var imglen=aImg.length;
+            var oLb=document.getElementById("lb");
+            var alLi=oLb.getElementsByTagName("li");
+            var oImg=oLb.getElementsByTagName("img")[0];
+            var lilen=alLi.length;
+
+            var j=0;
+
+            for(var i=0;i<lilen;i++){
+                alLi[i].innerHTML=aImg[i%imglen];
+                alLi[i].index=i;
+                alLi[i].onmouseover=function(){
+                    oImg.src=aImg[this.index%imglen];
+                    for (var m=0;m<lilen;m++){
+                        alLi[m].className="";
+                    }
+                    this.className="active";
+                    j=this.index;
+                }
+            }
+            var blon;
+            function yx(){
+                if(j==0){
+                    blon=true;
+                    j++;
+                }else if(j==lilen){
+                    blon=false;
+                    j--;
+                }
+                if(blon){
+                    alLi[j%lilen].onmouseover();
+                    j++;
+                }else {
+                    j--;
+                    alLi[j%lilen].onmouseover();
+                }
+            }
+
+            var p;
+            p=setInterval(yx,1000);
+
+            oLb.onmouseover=function(){
+                clearInterval(p)
+            };
+            oLb.onmouseout=function(){
+                clearInterval(p);
+                p=setInterval(yx,1000);
+            }
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="lb">
+    <ul>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <img src="img/1.jpg">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

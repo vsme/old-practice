@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送消息</title>
+    <style>
+        #ltk {
+            width: 300px;
+            height: 500px;
+            overflow-y: scroll;
+            background-color: #dedede;
+            border: 1px solid #aaaaaa;
+            padding: 10px;
+        }
+        #im{
+            float: left;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        #btn1{
+            padding: 5px 10px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+        }
+        #inp1{
+            width: 220px;
+            margin-top: 15px;
+            margin-left: 5px;
+        }
+        .right{float: right;}
+        .right2{float: right;  min-width: 250px; }
+        .dright{font-size: 14px; padding:10px;margin-bottom: 5px;min-height:14px;max-width: 210px; float: right;background-color: #0eaafa}
+        .left{float: left;}
+        .left2{float: left; min-width: 250px;}
+        .dleft{font-size: 14px;padding:10px;margin-bottom: 5px;min-height:14px;max-width: 210px;float: left;  background-color: #aaaaaa}
+        .right2:after,.left2:after,.right:after,.left:after,.dright:after,.dleft:after{content: ""; clear: both; display: block}
+    </style>
+    <script>
+        window.onload =function(){
+            var oDiv = document.getElementById("ltk");
+            var oIm = document.getElementById("im");
+            var oImg = document.getElementById("img1");
+            var oInp = document.getElementById("inp1");
+            var oBtn = document.getElementById("btn1");
+
+            var zhen = true;
+
+
+            oImg.onclick = function(){
+                if (zhen){
+                    oImg.src = "images/4.jpg";
+                    zhen =false;
+                }else {
+                    oImg.src = "images/1.jpg";
+                    zhen=true;
+                }
+            };
+
+
+            oBtn.onclick = function (){
+                if(oInp.value==""){
+                    alert("请输入内容~")
+                }else {
+                    if (zhen){
+                        oImg.className="right";
+                        var cla = "dright";
+                        var cla2 = "right2"
+                    }else {
+                        oImg.className="left";
+                        var cla = "dleft";
+                        var cla2 = "left2"
+                    }
+                    var ner='<div class="'+ cla +'">'+"说："+ oInp.value +'</div>';
+                    oDiv.innerHTML ="<div class='"+cla2+"'>"+ oIm.innerHTML + ner+"</div>" +  oDiv.innerHTML;
+                    oInp.value = "";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="ltk">
+
+</div>
+<div id="im">
+    <img id="img1" src="images/1.jpg" width="30" height="30">
+</div>
+<input id="inp1" type="text">
+<a id="btn1" href="#">发送</a>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成五彩色</title>
+    <style>
+        div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 50px;
+            background-color: #aaaaaa;
+        }
+
+        .bgred {
+            background-color: red;
+        }
+
+        .bgyellow {
+            background-color: yellow;
+        }
+
+        .bgblue {
+            background-color: blue;
+        }
+
+        .bggreen {
+            background-color: green;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById("btn1");
+            var aDiv = document.getElementsByTagName("div");
+
+            oBtn.onclick = function () {
+
+                var str = "";
+                for (var i = 0; i < 100; i++) {
+                    str += "<div>" + i + "</div>"
+                }
+                document.body.innerHTML += str;
+
+
+                var len = aDiv.length;
+                for (var j = 0; j < len; j++) {
+                    aDiv[j].style.left = 10 + (j % 10) * 60 + "px";
+                    aDiv[j].style.top = 40 + parseInt(j / 10) * 60 + "px";
+                    if (j % 5 == 0) {
+                        aDiv[j].className = "bgred";
+                        aDiv[j + 1].className = "bgyellow";
+                        aDiv[j + 2].className = "bgblue";
+                        aDiv[j + 3].className = "bggreen";
+                    }
+                }
+
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+<input id="btn1" type="button" value="生成">
+</body>
+</html>

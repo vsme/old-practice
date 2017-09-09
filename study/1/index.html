@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 微软雅黑;
+        }
+        body{
+            margin: 20px;
+        }
+        ul li{  list-style-type: none        }
+        #Div {
+            width: 50px;
+            height: 50px;
+            background-color: #ccc;
+            margin-top: 20px;
+        }
+
+        #btn {
+            padding: 5px 10px;
+            background-color: #06c;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        #btn:hover {
+            background-color: #0eaafa
+        }
+
+        #tc {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #shz{
+            width: 300px;
+            height: 200px;
+            outline: 20px solid rgba(255,255,255,0.6);
+            background-color: #fff;
+            padding: 20px;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin-left: -150px;
+            margin-top: -160px;
+            text-align: center;
+        }
+        ul li{
+            float: left;
+            font-size: 16px;
+            line-height: 36px;
+        }
+        ul li a:hover{
+            cursor: pointer;
+        }
+        ul li a{
+            float: left;
+            display: block;
+            padding: 5px 10px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            border: 1px solid #ddd;
+            margin-left: 10px;
+            background-color: #eee;
+        }
+        ul li a:hover{background-color: #ddd}
+        ul:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        ul{
+            margin-top: 10px;
+        }
+        ul:last-child{ margin-top: 20px}
+        #red{background-color: red;}
+        #yello{background-color: yellow;}
+        #blue{background-color: blue;}
+
+
+
+
+
+        #hf{margin-left: 95px; color: white; background-color: #0066cc}
+        #qr{margin-left: 10px; color: white; background-color: #0066cc}
+        #qr:hover,#hf:hover{background-color: #0044aa}
+
+    </style>
+</head>
+<body>
+<h3>请为下面的div设置样式~~ <a href="#" id="btn">点击设置</a></h3>
+<div id="Div"></div>
+<div id="tc">
+    <div id="shz">
+        <ul>
+            <li>请选择背景颜色:</li>
+            <li><a id="red">红</a> </li>
+            <li><a id="yello">黄</a> </li>
+            <li><a id="blue">蓝</a> </li>
+        </ul>
+        <ul>
+            <li>请选择宽(px):</li>
+            <li><a id="w200">200</a> </li>
+            <li><a id="w300">300</a> </li>
+            <li><a id="w400">400</a> </li>
+        </ul>
+        <ul>
+            <li>请选择高(px):</li>
+            <li><a id="h200">200</a> </li>
+            <li><a id="h300">300</a> </li>
+            <li><a id="h400">400</a> </li>
+        </ul>
+        <ul>
+            <li><a id="hf">恢复</a> </li>
+            <li><a id="qr">确定</a> </li>
+        </ul>
+    </div>
+</div>
+<script>
+    var div = document.getElementById("Div");
+    var btn = document.getElementById("btn");
+    var tc = document.getElementById("tc");
+    var hf = document.getElementById("hf");
+    var qr = document.getElementById("qr");
+
+
+    btn.onclick = show;
+    qr.onclick = hide;
+    hf.onclick = huifu;
+    function show() {
+        tc.style.display = "block";
+    }
+    function hide() {
+        tc.style.display = "none";
+    }
+    function huifu(){
+        div.style.width="50px";
+        div.style.height="50px";
+        div.style.backgroundColor="#ccc";
+    }
+
+
+
+
+    document.getElementById("red").onclick = function (){div.style.backgroundColor="red"};
+    document.getElementById("yello").onclick = function (){div.style.backgroundColor="yellow"};
+    document.getElementById("blue").onclick = function (){div.style.backgroundColor="blue"};
+
+    document.getElementById("w200").onclick = function (){div.style.width="200px"};
+    document.getElementById("w300").onclick = function (){div.style.width="300px"};
+    document.getElementById("w400").onclick = function (){div.style.width="400px"};
+
+    document.getElementById("h200").onclick = function (){div.style.height="200px"};
+    document.getElementById("h300").onclick = function (){div.style.height="300px"};
+    document.getElementById("h400").onclick = function (){div.style.height="400px"};
+
+
+
+
+</script>
+</body>
+</html>

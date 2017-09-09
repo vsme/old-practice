@@ -1,0 +1,82 @@
+
+/*部分开始-----------------------------------------------------*/
+/*banner*/
+.none {
+	display: none;
+}
+
+.banner_show {
+	width: 940px;
+	position: relative;
+	
+}
+.bannger_inbox {
+	position: absolute;
+	left: 50%;
+	top: 0;
+
+}
+/*翻页*/
+.banner_pre_next {
+	position: relative;
+	z-index: 999;
+	top: -97px;
+	width: 940px;
+	height: 37px;
+}
+.banner_pre_next a {
+	width: 37px;
+	height: 37px;
+	background: url(../images/btn.png) no-repeat;
+	text-indent: -999em;
+}
+.banner_pre_next .banner_btn_left {
+	position: absolute;
+	left: 0px;
+	background-position: 0px 0px;
+}
+.banner_pre_next .banner_btn_right {
+	position: absolute;
+	right: 0px;
+	background-position: -37px 0px;
+}
+.banner_mag .sywz {
+	position: relative;
+	top: 648px;
+}
+/*文字*/
+.banner_mag {
+	position: relative;
+	z-index: 99;
+	width: 940px;
+	height: 688px;
+
+
+}
+
+.bartext {
+	position: absolute;
+	bottom: 160px;
+	left: 0px;
+	background-color: rgba(255, 255, 255, 0.7);
+	line-height: 21px;
+	padding: 16px;
+	width: auto !important;
+	font-family: "宋体", "新宋体", "微软雅黑", "Adobe 黑体 Std R", "Arial Unicode MS";
+}
+.bartext a {
+	font-size: 32px;
+	text-decoration: none;
+	color: #000;
+	font-family: "微软雅黑", "黑体", "Arial Unicode MS";
+}
+.bartext .sub, .bartext .sub a {
+	font-size: 12px;
+	color: #666;
+	margin: 6px 0px 0px 1px;
+	line-height: 24px;
+	text-decoration: none;
+}
+
+
+/*部分结束-----------------------------------------------------*/

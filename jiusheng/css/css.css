@@ -1,0 +1,69 @@
+@charset "utf-8";
+body {
+	margin: 0px;
+}
+a img {
+	border: 0px;	
+		}
+.topbg1 {
+	background-image: url(../images/top-bg1.jpg);
+	background-repeat: repeat-x;
+}
+.topbg2 {
+	background-image: url(../images/top-bg2.jpg);
+	background-repeat: repeat-x;
+}
+.dbbg1 {
+	background-image: url(../images/dbbg1.jpg);
+	background-repeat: repeat-x;
+}
+.dbbg2 {
+	background-image: url(../images/dbbg2.jpg);
+	background-repeat: repeat-x;
+}
+.nr {
+	font-family: "新宋体", "微软雅黑", "黑体", "Adobe 仿宋 Std R", Arial;
+	font-size: 12px;
+	line-height: 24px;
+	text-decoration: none;
+}
+a.dblj:link {
+	font-family: "新宋体", "微软雅黑", "黑体", "Adobe 仿宋 Std R", Arial;
+	font-size: 12px;
+	text-decoration: none;
+	color: #000;
+}
+a.dblj:visited {
+	font-family: "新宋体", "微软雅黑", "黑体", "Adobe 仿宋 Std R", Arial;
+	font-size: 12px;
+	text-decoration: none;
+	color: #000;
+}
+a.dblj:hover {
+	font-family: "新宋体", "微软雅黑", "黑体", "Adobe 仿宋 Std R", Arial;
+	font-size: 12px;
+	text-decoration: none;
+	color: #882527;
+}
+.bigphoto{
+	-webkit-box-shadow: 0px 3px 3px #B0B0B0;
+	box-shadow: 0px 3px 3px #B0B0B0;
+	}
+.biaoge {
+	background-image: url(../images/biaogebiankuang.jpg);
+	background-repeat: no-repeat;
+}
+.biaogebk {
+ border: 1px solid #C1DAD7/*边框颜色*/;
+
+}
+.biaogebk td{
+ border: 1px solid #C1DAD7/*边框颜色*/;
+
+}
+.bt {
+	font-family: "新宋体", "微软雅黑", "黑体", "Adobe 仿宋 Std R", Arial;
+	font-size: 16px;
+	line-height: 26px;
+	text-decoration: none;
+}

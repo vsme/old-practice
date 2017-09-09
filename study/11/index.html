@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入框判断</title>
+</head>
+<body>
+请输入数字：<input type="text"/>
+<input type="button" value="判断"/>
+
+
+<br/>
+1、有没有输入<br/>
+2、输入的是不是数字<br/>
+3、不能有0在前面<br/>
+4、不能是小数<br/>
+5、输入的数字必须在5位以上、10位以内<br/>
+</body>
+<script>
+    var oI1 = document.getElementsByTagName("input")[0];
+    var oI2 = document.getElementsByTagName("input")[1];
+
+    oI2.onclick = function () {
+        if (oI1.value == "") {
+            alert("不能为空")
+        } else if (isNaN(oI1.value)) {
+            alert("输入的不是数字，或含有特殊字符")
+        } else if (!(parseFloat(oI1.value) == parseInt(oI1.value))) {
+            alert("数字不能有小数点")
+        } else if (!(String(Number(oI1.value)) == oI1.value)) {
+            alert("数字前面不能有0")
+        } else if (!(oI1.value.length > 4 && oI1.value.length < 11)) {
+            alert("数字应该在5-10位之间")
+        }else {
+            alert("输入正确")
+        }
+    }
+
+
+
+</script>
+</html>

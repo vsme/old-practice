@@ -1,0 +1,65 @@
+LI {
+	LIST-STYLE-TYPE: none
+}
+#featured {
+	WIDTH: 960px;
+	POSITION: relative;
+	HEIGHT: 540px;
+	overflow: hidden;
+}
+#featured .word {
+	font-size: 12px;
+	font-family: "新宋体", "微软雅黑", "黑体", "Adobe 仿宋 Std R", Arial;
+	color: rgb( 51, 51, 51 );
+	line-height: 24px;
+	float: left;
+	Z-INDEX: 2000;
+	WIDTH: 260px;
+	COLOR: #000000;
+	POSITION: absolute;
+	HEIGHT: 540px;
+	left: 700px;
+	top: 0px;
+	text-align: left;
+	text-decoration: none;
+}
+
+#featured .ui-els-hide {
+	DISPLAY: none
+}
+#thumbs {
+	WIDTH: 480px; LIST-STYLE-TYPE: none; HEIGHT: 28px
+}
+#thumbs {
+	HEIGHT: 100%
+}
+#thumbs LI {
+	DISPLAY: block;
+	FLOAT: left;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+#thumbs UL {
+	MARGIN-TOP: -40px;
+	width: 572px;
+	float: left;
+	margin-left: 260px;
+}
+
+
+#thumbs LI img {
+	width: 33px;
+	height: 21px;
+	border-radius: 3px;
+	border-width: 0px;
+	opacity: 0.8;
+}
+
+#thumbs UL .btnqh{
+	opacity: 1;
+	}
+#topstory {
+}
+#highlight {
+	FLOAT: left
+}

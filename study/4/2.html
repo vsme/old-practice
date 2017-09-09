@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转</title>
+    <style>
+        div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 50px;
+            background-color: #aaaaaa;
+        }
+    </style>
+
+</head>
+
+<body>
+<input onclick="paixu()" type="button" value="生成/再次点击旋转">
+<script>
+    var aDiv = document.getElementsByTagName("div");
+
+
+    var str = "";
+    function xie() {
+        document.body.innerHTML += str;
+
+    }
+    var p = 0;
+
+    function paixu() {
+        for (var i = 0; i < 5; i++) {
+            str += "<div>" + i + "</div>"
+        }
+        xie();
+        xie = function () {};
+
+        var len = aDiv.length;
+
+        if (p == 0) {
+
+            for (var j = 0; j < len; j++) {
+                aDiv[j].style.left = 10 + (j % 10) * 60 + "px";
+
+                if(j<3){
+                    aDiv[j].style.top = 40 + j * 60 + "px";
+                }else {
+                    aDiv[j].style.top = 40 + (4-j) * 60 + "px";
+                }
+            }
+        } else if (p == 1) {
+            for (var j = 0; j < len; j++) {
+                aDiv[j].style.top = 40 + (j % 10) * 60 + "px";
+
+                if(j<3){
+                    aDiv[j].style.left = 10 + j * 60 + "px";
+                }else {
+                    aDiv[j].style.left = 10 + (4-j) * 60 + "px";
+                }
+            }
+        }else if (p == 2) {
+            for (var j = 0; j < len; j++) {
+                aDiv[j].style.left = 10 + (j % 10) * 60 + "px";
+
+                if(j>2){
+                    aDiv[j].style.top = 40 + j * 60 + "px";
+                }else {
+                    aDiv[j].style.top = 40 + (4-j) * 60 + "px";
+                }
+            }
+        }else if (p == 3) {
+            for (var j = 0; j < len; j++) {
+                aDiv[j].style.top = 40 + (j % 10) * 60 + "px";
+
+                if(j>2){
+                    aDiv[j].style.left = 10 + j * 60 + "px";
+                }else {
+                    aDiv[j].style.left = 10 + (4-j) * 60 + "px";
+                }
+            }
+            p=-1;
+        }
+
+        p++;
+
+    }
+
+
+</script>
+
+</body>
+</html>

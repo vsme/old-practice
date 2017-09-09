@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this练习</title>
+    <style>
+        ul {
+            width: 1100px;
+            position: absolute;
+            left: 50%;
+            top: 100px;
+            margin-left: -550px;
+            background-color: #0c0c0d;
+            padding: 0;
+        }
+
+        ul:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        ul li {
+            width: 200px;
+            height: 200px;
+
+            margin: 10px 10px;
+            background: #ff6000;
+            float: left;
+            list-style-type: none;
+        }
+
+        ul li div {
+            width: 80%;
+            height: 180px;
+            background-color: #0066cc;
+            position: relative;
+            top: -60px;
+            left: 70px;
+            display: none;
+
+        }
+    </style>
+
+    <script>
+        window.onload=function(){
+
+            var oUl = document.getElementById("ul1");
+            var aLi = oUl.getElementsByTagName("li");
+            var len = aLi.length;
+            for (var i = 0; i < len; i++) {
+                aLi[i].onmouseover = function () {
+                    this.getElementsByTagName("div")[0].style.display="block";
+                };
+                aLi[i].onmouseout = function () {
+                    this.getElementsByTagName("div")[0].style.display="none";
+                }
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+    <li>
+        <div></div>
+    </li>
+</ul>
+</body>
+</html>

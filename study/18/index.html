@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>return练习</title>
+    <style>
+        body{
+            font-size: 12px;
+            line-height: 24px;
+        }
+        p{
+            width: 100%;
+            word-wrap: break-word;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+
+            $("sc").onclick=function(){
+                var num1=$("qi").value;
+                var num2=$("shi").value;
+                $("con").innerHTML=Carr(num1,num2);
+            };
+
+            function Carr(a,b){
+                var arr=[];
+                if(a>b){
+                    for (var i=b;i<=a;i++){
+                        arr.push(i);
+                    }
+                }else {
+                    for (var i=a;i<=b;i++){
+                        arr.push(i);
+                    }
+                }
+                return arr;
+            }
+
+            function $( id ){
+                return document.getElementById(id);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="number" placeholder="数组起或始" id="qi">
+<input type="number" placeholder="数组起或始" id="shi">
+<a href="javascript:" id="sc">生成</a>
+<div>请填写数字，生成一个从小到大排列的顺序数组。</div>
+<p id="con"></p>
+</body>
+</html>

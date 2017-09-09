@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动事件</title>
+    <style>
+        .con{
+            width: 200px;
+            height: 500px;
+            margin: 20px auto;
+        }
+        .header{
+            height: 24px;
+            font-size: 12px;
+            line-height: 24px;
+            padding-left: 10px;
+            background: #009bff;
+            color: white;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            text-align: center;
+        }
+        .con a{
+            display: block;
+            height: 23px;
+            line-height: 23px;
+            color: white;
+            background: #3a87ad;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+        }
+        a:hover{
+            background: #0066cc;
+        }
+        .noradius{
+            border-radius: 0 !important;
+        }
+        .nr{
+            height: 430px;
+            overflow: hidden;
+            border-left: 1px solid #aaa;
+            border-right: 1px solid #aaa;
+        }
+        .nr ul{
+            margin: 0;
+            position: relative;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oNr=document.getElementById("nr");
+            var oUl =oNr.getElementsByTagName("ul")[0];
+            var otop=document.getElementById("ontop");
+            var obottom=document.getElementById("onbottom");
+
+            var uh = parseInt(getStyle(oUl, "height"));
+            var nh = parseInt(getStyle(oNr, "height"));
+
+            var hcha = uh - nh;
+
+            var i=0;
+
+            function top() {
+                if (hcha > 0 && i <= hcha) {
+                    oUl.style.top = -i + "px";
+                    i++;
+                }
+            }
+
+            function bottom(){
+                if(i>=0){
+                    oUl.style.top = -i + "px";
+                    i--;
+                }
+            }
+
+
+            var setm;
+            var setb;
+
+            otop.onmousedown = function(){
+                setm=setInterval(top, 15);
+            };
+            otop.onmouseup = function(){
+                clearInterval(setm);
+            };
+
+            obottom.onmousedown =function(){
+                setb=setInterval(bottom, 15);
+            };
+
+            obottom.onmouseup = function(){
+                clearInterval(setb);
+            };
+
+
+
+
+            function getStyle( obj, attr ){
+                return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle( obj )[attr];
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="con">
+    <div class="header">
+        按住top/bottom滚动
+    </div>
+    <a href="javascript:" class="noradius" id="ontop">top↑</a>
+
+    <div class="nr" id="nr">
+        <ul>
+            <li>start</li>
+            <li>234</li>
+            <li>345</li>
+            <li>123</li>
+            <li>233244</li>
+            <li>345</li>
+            <li>123</li>
+            <li>2er34</li>
+            <li>345</li>
+            <li>123</li>
+            <li>657234</li>
+            <li>345</li>
+            <li>123</li>
+            <li>345</li>
+            <li>123</li>
+            <li>657234</li>
+            <li>345</li>
+            <li>123</li>
+            <li>345</li>
+            <li>123</li>
+            <li>657234</li>
+            <li>345</li>
+            <li>123</li>
+            <li>28534</li>
+            <li>345</li>
+            <li>123</li>
+            <li>23334</li>
+            <li>345</li>
+            <li>123</li>
+            <li>23134</li>
+            <li>345</li>
+            <li>123</li>
+            <li>234</li>
+            <li>342325</li>
+            <li>123</li>
+            <li>234</li>
+            <li>345</li>
+            <li>123</li>
+            <li>23324</li>
+            <li>345</li>
+            <li>12233</li>
+            <li>2324</li>
+            <li>end</li>
+        </ul>
+
+    </div>
+
+    <a href="javascript:" id="onbottom">bottom↓</a>
+
+</div>
+</body>
+</html>

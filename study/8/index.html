@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缩略图，banner图片切换</title>
+    <style>
+        * {
+            transition: all 0.2s;
+        }
+
+        ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #con {
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        #banner {
+            width: 750px;
+            height: 460px;
+            margin: 30px 0 0 0;
+            background-color: #dedede;
+            position: relative;
+        }
+
+        #banner #left, #banner #right {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            background-color: #aaa;
+            border-radius: 50%;
+            top: 50%;
+            margin-top: -20px;
+            text-decoration: none;
+        }
+
+        #banner #left:hover, #banner #right:hover {
+            background-color: #ff6000;
+        }
+
+        #banner #left {
+            left: 30px;
+        }
+
+        #banner #right {
+            right: 30px;
+        }
+
+        #banner img {
+            width: 750px;
+            height: 460px;
+        }
+
+        ul {
+            width: 400px;
+            height: 50px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        ul li {
+            width: 40px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        ul li a {
+            width: 16px;
+            height: 16px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 50%;
+            background-color: #aaa;
+
+        }
+
+        ul li a:hover {
+            background-color: #ff6000;
+        }
+
+        a.active {
+            background-color: #ff6000;
+        }
+
+        ul li span {
+            width: 80px;
+            height: 55px;
+            position: absolute;
+            background-color: white;
+            border-radius: 3px;
+            top: -66px;
+            left: -20px;
+            display: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        }
+
+        span img {
+            width: 76px;
+            height: 51px;
+            margin: 2px;
+        }
+
+        .ondis {
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oUl = document.getElementById("lb");
+            var oBan = document.getElementById("banner");
+            var aA = oUl.getElementsByTagName("a");
+            var aSpan = oUl.getElementsByTagName("span");
+            var oImg = oBan.getElementsByTagName("img")[0];
+
+            var oLeft = document.getElementById("left");
+            var oRight = document.getElementById("right");
+
+
+            var m = 0;
+            var aImg = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"];
+            var len = aImg.length;
+            for (var i = 0; i < len; i++) {
+                oUl.innerHTML += '<li><a href="#"></a><span><img src="img/' + (i + 1) + '.jpg"></span></li>';
+            }
+
+            function jznr() {
+                oImg.src = aImg[m];
+                aA[m].className = "active";
+            }
+
+            if (len > 1) {
+                jznr();
+            } else {
+                oBan.innerHTML = "图片加载失败..."
+            }
+
+
+            /*清除其他的active样式*/
+            function ycact() {
+                for (var j = 0; j < len; j++) {
+                    aA[j].className = "";
+                }
+            }
+
+
+            for (var j = 0; j < len; j++) {
+                aA[j].index = j;
+                aA[j].onmouseover = function () {
+                    aSpan[this.index].className = "ondis";
+                };
+                aA[j].onmouseout = function () {
+                    aSpan[this.index].className = "";
+                };
+                aA[j].onclick = function () {
+                    m = this.index;
+                    ycact();
+                    this.className = "active";
+                    oImg.src = aImg[this.index];
+                }
+            }
+
+            oLeft.onclick = function () {
+                m--;
+                if (m == -1) {
+                    m = len - 1
+                }
+                ycact();
+                jznr();
+
+            };
+            oRight.onclick = function () {
+                m++;
+                if (m == len) {
+                    m = 0;
+                }
+                ycact();
+                jznr();
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="con">
+    <div id="banner">
+        <img src="">
+        <a href="#" id="left"><</a>
+        <a href="#" id="right">></a>
+    </div>
+
+
+    <ul id="lb">
+
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>时钟</title>
+</head>
+<script type="text/javascript">
+    function systemTime() {
+        //获取系统时间。
+        var dateTime = new Date();
+        var hh = dateTime.getHours();
+        var mm = dateTime.getMinutes();
+        var ss = dateTime.getSeconds();
+
+        var mzds = ss * 6 + "deg";
+        var fzds = mm * 6 + "deg";
+        var szds = hh * 30 + "deg";
+
+        document.getElementById("mz").style.webkitTransform = "rotate(" + mzds + ")";
+        document.getElementById("fz").style.webkitTransform = "rotate(" + fzds + ")";
+        document.getElementById("sz").style.webkitTransform = "rotate(" + szds + ")";
+
+        mm = bw(mm);
+        ss = bw(ss);
+        document.getElementById("time").innerHTML = hh + ":" + mm + ":" + ss;
+
+        setTimeout("systemTime()", 1000);
+    }
+
+    function bw(x) {
+        if (x < 10) { return "0" + x; }
+        else { return x; }
+    }
+
+</script>
+<!--时间-->
+<style>
+    #mz {
+        width: 1px;
+        height: 50px;
+        background-color: #bd4e30;
+        position: absolute;
+        left: 203px;
+        top: 173px;
+        z-index: 14;
+        transform: rotate(-0deg);
+        transform-origin: 0 45px;
+    }
+
+    #fz {
+        background-color: #9d3523;
+        position: absolute;
+        left: 203px;
+        top: 183px;
+        width: 1px;
+        height: 40px;
+        z-index: 13;
+        transform-origin: 0 35px;
+    }
+
+    #sz {
+        background-color: rgb(114, 64, 66);
+        position: absolute;
+        left: 203px;
+        top: 185px;
+        width: 2px;
+        height: 35px;
+        z-index: 12;
+        transform-origin: 0 32px;
+    }
+
+    #sj {
+        background-image: url("bg.png");
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -400px 0 0 -200px;
+        width: 400px;
+        height: 600px;
+        background-color: #00a7d0;
+    }
+
+    #time {
+        text-align: center;
+        color: #c95fc3;
+        opacity: 0.4;
+        position: absolute;
+        top: 360px;
+        left: 150px;
+        width: 100px;
+    }
+</style>
+
+<body onload="systemTime()">
+    <div id="sj">
+        <!--时间-->
+        <!--
+            <div id="yq"></div>&lt;!&ndash;中间点&ndash;&gt;
+        -->
+        <div id="fz"></div>
+        <div id="mz"></div>
+        <div id="sz"></div>
+        <div id="time"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for+this</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            margin: 9px;
+            width: 611px;
+            height: 611px;
+            background-color: #ddd;
+        }
+
+        div {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            background:#ddd;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oHeader = document.getElementsByTagName("header")[0];
+            var str = "";
+            for (var i = 0; i < 100; i++) {
+                str += "<div></div>"
+            }
+            oHeader.innerHTML += str;
+
+            var aDiv = oHeader.getElementsByTagName("div");
+            var len = aDiv.length;
+            for (var j = 0; j < len; j++) {
+                aDiv[j].style.left = 10 + (j % 10) * 61 + "px";
+                aDiv[j].style.top = 10 + parseInt(j / 10) * 61 + "px";
+
+                /*背景*/
+                aDiv[j].style.backgroundPosition = -(j % 10) * 60 + "px " + (-parseInt(j / 10) * 60) + "px";
+
+
+                aDiv[j].onmouseover = function () {
+                    this.style.backgroundImage = "url(images/1.jpg)"
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<header>
+
+</header>
+</body>
+</html>

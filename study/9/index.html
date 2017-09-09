@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制多组图片切换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #con{
+            width: 1200px;
+            height: 600px;
+            margin: 50px auto;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+        #toprig,#topleft{
+            display: none;
+            height: 300px;
+            position: absolute;
+            bottom: 0;
+        }
+        #topleft{
+            left: 0;
+        }
+        #toprig{
+            right: 0;
+            height: 200px;
+            opacity: 0.6;
+        }
+        a{
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 30px 5px;
+            background-color: #0066cc;
+            color: #fff;
+            border-radius: 3px;
+            display: inline-block;
+            font-size: 12px;
+            line-height: 12px;
+        }
+        a:first-child{
+            margin-left: 43px;
+        }
+        a:hover{
+            background-color: #0044aa;
+        }
+        #div1,#div2{
+            position: absolute;
+            top: 80px;
+            height: 450px;
+            background-color: #fff;
+            padding: 3px;
+            overflow: hidden;
+        }
+        #div1 img,#div2 img{
+            width: 100%;
+            cursor: pointer;
+        }
+        #div1 span,#div2 span{
+            display: block;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            height: 30px;
+            background-color: rgba(0,0,0,0.4);
+            color: white;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        #div1{
+            width: 700px;
+            left: 40px;
+        }
+        #div2{
+            width: 350px;
+            left: 790px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oD1 =document.getElementById("div1");
+            var oD2 =document.getElementById("div2");
+            var oC=document.getElementById("con");
+            var oS1 =oD1.getElementsByTagName("span")[0];
+            var oS2 =oD2.getElementsByTagName("span")[0];
+            var oI1 =oD1.getElementsByTagName("img")[0];
+            var oI2 =oD2.getElementsByTagName("img")[0];
+            var oB1= oC.getElementsByTagName("a")[0];
+            var oB2= oC.getElementsByTagName("a")[1];
+
+
+            var aImg1=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+            var aImg2=["img/6.jpg","img/7.jpg","img/8.jpg"];
+            var aT1=["三角山","橘树","撑伞","摩托车","猫"];
+            var aT2=["耐克","塔","飞机"];
+
+            var le1=aImg1.length;
+            var le2=aImg2.length;
+
+            var m=0;
+            var n=0;
+
+            /*初始化*/
+            function jz(){
+                oI1.src=aImg1[m];
+                oI2.src=aImg2[n];
+                oS1.innerHTML =m+1 +"/" +le1+"    "+aT1[m];
+                oS2.innerHTML =n+1 +"/" +le2+"    "+aT2[n];
+            }
+            jz();
+
+
+            oB2.onclick=function(){
+                m++;
+                n++;
+                if (m==le1){
+                    m=0;
+                }
+                if(n==le2){
+                    n=0;
+                }
+                jz();
+            };
+            oB1.onclick=function(){
+                m--;
+                n--;
+                if (m==-1){
+                    m=le1-1;
+                }
+                if(n==-1){
+                    n=le2-1;
+                }
+                jz();
+            };
+            oI1.onclick =function(){
+                m++;
+                if (m==le1){
+                    m=0;
+                }
+                jz();
+            };
+            oI2.onclick =function(){
+                n++;
+                if (n==le2){
+                    n=0;
+                }
+                jz();
+            }
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<div id="con">
+
+    <a href="#">上一页</a>
+    <a href="#">下一页</a>
+
+
+    <div id="div1">
+        <img src="#">
+        <span>图片数量计算中...</span>
+    </div>
+    <div id="div2">
+        <img src="#">
+        <span>图片数量计算中..</span>
+    </div>
+
+    <img id="toprig" src="img/2.png">
+    <img id="topleft" src="img/1.png">
+</div>
+</body>
+</html>

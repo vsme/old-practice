@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>如意金箍棒</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .d1{
+            width: 200px;
+            height: 10px;
+            transition: all 500ms;
+            background: red;
+            margin: 20px auto;
+            border-radius: 3px;
+        }
+        .d1 div{
+            width: 80%;
+            margin-left: 10%;
+            height: 10px;
+            background: yellow;
+        }
+        a{
+            text-decoration: none;
+            padding: 5px 10px;
+            background: #666666;
+            color: white;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        a:hover{
+            background: #444;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            document.getElementsByTagName("a")[0].index=false;
+
+            document.getElementsByTagName("a")[0].onclick=function(){
+                if(this.index){
+                    document.getElementsByTagName("div")[0].style.width = "800px" ; this.index = false ;
+                }else {
+                    document.getElementsByTagName("div")[0].style.width = "50px";this.index = true ;
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="d1">
+    <div></div>
+</div>
+<a href="javascript:">如意金箍棒</a>
+</body>
+</html>

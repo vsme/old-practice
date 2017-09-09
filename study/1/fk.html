@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 微软雅黑
+        }
+
+        body form {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px 20px 40px 20px;
+            background-color: #efefef;
+            min-height: 100%;
+        }
+
+        h3 {
+            width: 100%;
+            font-size: 28px
+        }
+
+        .bt {
+            width: 100%;
+            font-size: 18px;
+            margin: 15px 0 7px 0
+        }
+
+        .bt .red {
+            color: red;
+            font-size: 14px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 240px;
+            border: solid 1px #aaa;
+        }
+
+        input {
+            width: 100%;
+            height: 24px;
+            line-height: 24px;
+        }
+
+        label {
+            width: 100%;
+            float: left;
+            font-size: 14px;
+            line-height: 26px;
+            height: 30px;
+            margin-top: 5px;
+            position: relative;
+        }
+
+        label input {
+            width: 15px;
+            height: 15px;
+            border: 1px solid #eee;
+            box-shadow: none;
+            position: relative;
+            top: 3px;;
+        }
+
+        .fknr {
+            border: 1px solid #aaa;
+            padding: 1%;
+        }
+
+        .fknr:after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+        .tijiao{
+            background-color: #0066cc;
+            border: 0;
+            color: #fff;
+            height: 30px;
+        }
+        .tijiao:hover{
+            background-color: #0eaafa;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <h3>意见反馈</h3>
+
+    <div class="bt">
+        反馈标题
+        <span class="red">*必填</span>
+    </div>
+    <input type="text" placeholder="标题">
+    <div class="bt">
+        反馈内容
+        <span class="red">*必填</span>
+    </div>
+    <textarea placeholder="欢迎提出您在使用过程中遇到的问题或宝贵建议，感谢您对携君的支持。"></textarea>
+    <div class="bt">
+        问题链接地址
+    </div>
+    <input type="text" placeholder="有问题的连接地址，没链接可不填。">
+
+    <div class="bt">
+        期望尽快加入的功能
+    </div>
+    <div class="fknr">
+        <label><input name="Fruit" type="checkbox" value=""/> 功能1 </label>
+        <label><input name="Fruit" type="checkbox" value=""/> 功能2 </label>
+        <label><input name="Fruit" type="checkbox" value=""/> 功能3 </label>
+        <label><input name="Fruit" type="checkbox" value=""/> 功能4 </label>
+    </div>
+
+
+    <div class="bt">联系方式</div>
+    <input type="text" placeholder="请留下您的联系方式，以便我们及时回复您。">
+    <div class="bt">
+        <input class="tijiao" type="submit" value="提交反馈">
+    </div>
+</form>
+</body>
+</html>

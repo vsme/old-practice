@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜狐视频记录片列表展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #con {
+            width: 300px;
+            height: 500px;
+            background-color: #8df;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #con ul{
+            width: 100%;
+            position: absolute;
+            top: 48px;
+            display: none;
+        }
+        #con .ulxs{
+            display: block;
+        }
+        li{
+            list-style: none;
+        }
+        h1{
+            font-size: 20px;
+            line-height: 30px;
+            height: 40px;
+            padding: 10px;
+        }
+        #xxk{
+            padding-right: 10px;
+            position: absolute;
+            right: 0;
+            top:24px;
+            border-bottom: 1px solid #fff;
+            width: 100%;
+        }
+        #xxk a{
+            display: inline-block;
+            padding: 5px;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 12px;
+            float: right;
+            border: 1px solid #fff;
+            margin-bottom: -1px;
+            margin-right: -1px;
+            background-color: #3a87ad;
+            color: white;
+        }
+        #xxk a.active{
+            border-bottom: none;
+            background-color: #fff;
+            color: #3a87ad;
+        }
+        #con ul li{
+            width: 100%;
+            border-bottom: 1px solid #fff;
+            border-top: 1px solid #fff;
+            margin-top: -1px;
+            padding: 5px 10px;
+            position: relative;
+        }
+        #con ul li:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #con span{
+            min-width: 12px;
+            padding: 5px;
+            display: inline-block;
+            font-size: 12px;
+            text-align: center;
+            line-height: 12px;
+            background-color: #3a87ad;
+            color: white;
+            float: left;
+        }
+
+        #con li img{
+            width: 50px;
+            height: 40px;
+            float: left;
+            margin-left: 6px;
+            display: none;
+        }
+        #con li a{
+            line-height: 12px;
+            padding: 5px;
+            font-size: 12px;
+            margin-left: 5px;
+            float: left;
+            text-decoration: none;
+        }
+        #con li input{
+            padding: 3px 6px;
+            line-height: 12px;
+            font-size: 12px;
+            position: absolute;
+            bottom: 5px;
+            right: 30px;
+            float: left;
+            background: #fff;
+            border: none;
+            display: none;
+        }
+
+        #con .act img,#con .act input{
+            display: block;
+        }
+
+    </style>
+    <script>
+        window.onload =function(){
+            var oXxk=document.getElementById("xxk");
+            var oCon=document.getElementById("con");
+            var aA=oXxk.getElementsByTagName("a");
+            var aUl=oCon.getElementsByTagName("ul");
+            var len=aA.length;
+
+            function qk(){
+                for (var j=0;j<len;j++){
+                    aA[j].className="";
+                    aUl[j].className="";
+                }
+            }
+
+
+            for (var i=0;i<len;i++){
+                aA[i].index=i;
+                aA[i].onclick=function(){
+                    qk();
+                    this.className="active";
+                    aUl[len-1-this.index].className="ulxs";
+                }
+            }
+
+
+            for(var i=0;i<len;i++){
+                hg(i);
+            }
+
+            function hg(m){
+                var aLi=aUl[m].getElementsByTagName("li");
+                var alilen=aLi.length;
+
+                function qkli(){
+                    for(var i=0;i<alilen;i++){
+                        aLi[i].className="";
+                    }
+                }
+                for(var i=0;i<alilen;i++){
+                    aLi[i].onmouseover=function(){
+                        qkli();
+                        this.className="act";
+                    };
+                    /*aLi[i].onmouseout=function(){
+                        this.className="";
+                    }*/
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="con">
+    <h1>搜狐视频选项卡</h1>
+    <div id="xxk">
+        <a href="#">最近</a>
+        <a href="#">最火</a>
+        <a href="#" class="active">热度</a>
+    </div>
+    <ul class="ulxs">
+        <li>
+            <span>1</span>
+            <img src="">
+            <a href="#">标题，这是标题标题</a>
+            <input type="button" value="播放>">
+        </li>
+        <li>
+            <span>2</span>
+            <img src="">
+            <a href="#">标题，这是标题标题2</a>
+            <input type="button" value="播放>">
+        </li>
+        <li>
+            <span>3</span>
+            <img src="">
+            <a href="#">标题，这是标题3</a>
+            <input type="button" value="播放>">
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <span>1</span>
+            <img src="">
+            <a href="#">标题，这是标题标题</a>
+            <input type="button" value="播放>">
+        </li>
+        <li>
+            <span>2</span>
+            <img src="">
+            <a href="#">标题，这是标题标2</a>
+            <input type="button" value="播放>">
+        </li>
+        <li>
+            <span>3</span>
+            <img src="">
+            <a href="#">标题，这是标题3</a>
+            <input type="button" value="播放>">
+        </li>
+        <li>
+            <span>4</span>
+            <img src="">
+            <a href="#">标题，这是标题3</a>
+            <input type="button" value="播放>">
+        </li><li>
+            <span>6</span>
+            <img src="">
+            <a href="#">标题，这是标题3</a>
+            <input type="button" value="播放>">
+        </li><li>
+            <span>7</span>
+            <img src="">
+            <a href="#">标题，这是标题3</a>
+            <input type="button" value="播放>">
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <span>1</span>
+            <img src="">
+            <a href="#">标题，这是标题标题</a>
+            <input type="button" value="播放>">
+        </li>
+        <li>
+            <span>2</span>
+            <img src="">
+            <a href="#">标题，这是标题标2</a>
+            <input type="button" value="播放>">
+        </li>
+        <li>
+            <span>3</span>
+            <img src="">
+            <a href="#">标题，这是标题3</a>
+            <input type="button" value="播放>">
+        </li>
+        <li>
+            <span>4</span>
+            <img src="">
+            <a href="#">hhhhh哈哈哈哈哈3</a>
+            <input type="button" value="播放>">
+        </li>
+        <li>
+            <span>5</span>
+            <img src="">
+            <a href="#">标题，嗯就是这样题3</a>
+            <input type="button" value="播放>">
+        </li>
+    </ul>
+
+
+</div>
+</body>
+</html>

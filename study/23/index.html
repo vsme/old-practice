@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>滑动</title>
+
+    <style>
+        body {
+
+            background: #eee;
+        }
+
+
+
+        .huad {
+
+            width: 300px;
+
+            height: 450px;
+
+            background: #fff;
+
+            border-top: 1px solid #999;
+
+            transition: all 0.5s ease;
+
+            position: relative;
+
+            margin: 10px;
+
+            padding: 0;
+
+            overflow: hidden;
+
+            float: left;
+        }
+
+
+
+        .huad:hover {
+
+            box-shadow: 0 4px 8px #ccc;
+
+            margin-top: 5px;
+        }
+
+
+
+        .huad ul,
+        .huad li {
+
+            margin: 0;
+
+            padding: 0;
+
+            text-decoration: none;
+
+            list-style: none;
+        }
+
+
+
+        .huad:hover .prev,
+        .huad:hover .next {
+
+            background: #ddd;
+        }
+
+
+
+        .huad .prev:hover,
+        .huad .next:hover {
+
+            background: #aaa;
+        }
+
+
+
+        .huad .prev,
+        .huad .next {
+
+            position: absolute;
+
+            display: block;
+
+            padding: 0 6px;
+
+            margin-top: -25px;
+
+            height: 50px;
+
+            line-height: 50px;
+
+            top: 50%;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            color: white;
+
+            transition: all 0.5s ease;
+
+            cursor: pointer;
+
+            z-index: 8;
+        }
+
+
+
+        .huad .prev {
+
+            left: 0;
+        }
+
+
+
+        .huad .next {
+
+            right: 0;
+        }
+
+
+
+        .huad h2 {
+
+            height: 40px;
+
+            font-size: 14px;
+
+            line-height: 40px;
+
+            text-align: center;
+
+            margin: 30px 0 0 0;
+        }
+
+
+
+        .huad .h_con {
+
+            position: relative;
+
+            left: 0;
+
+            transition: all 0.5s ease;
+        }
+
+
+
+        .huad .h_con li {
+
+            width: 200px;
+
+            text-align: center;
+
+            position: absolute;
+
+            margin-left: 50px;
+        }
+
+
+
+        .huad .h_con li {
+
+            width: 200px;
+
+            text-align: center;
+
+            position: absolute;
+
+            margin-left: 50px;
+        }
+
+        .h_bt {
+
+            font-size: 20px;
+
+            line-height: 50px;
+        }
+
+        .h_img img {
+
+            width: 160px;
+
+            height: 140px;
+
+            margin: 15px 0;
+        }
+
+        .h_herf a {
+
+            font-size: 12px;
+
+            color: #666;
+
+            line-height: 12px;
+
+            padding: 5px 10px;
+
+            text-decoration: none;
+
+            border: 1px solid #aaa;
+
+            transition: all 0.5s ease;
+        }
+
+        .h_herf a:hover {
+
+            background: #666;
+
+            color: #fff;
+        }
+
+        .h_herf {
+
+            font-size: 14px;
+
+            color: #555;
+
+            line-height: 14px;
+        }
+
+        .h_nr {
+
+            font-size: 12px;
+
+            line-height: 20px;
+
+            color: #888;
+
+            margin: 20px 0 0 0;
+        }
+
+        .h_dot {
+
+            width: 100%;
+
+            height: 30px;
+
+            position: absolute;
+
+            bottom: 20px;
+
+            text-align: center;
+        }
+
+        .h_dot li {
+
+            display: inline-block;
+
+            line-height: 30px;
+
+            padding: 3px 3px;
+
+            margin: 0 5px;
+
+            border-radius: 50%;
+
+            border: 2px solid #aaa;
+
+            background-color: #fff;
+
+            cursor: pointer;
+
+            transition: all 0.5s ease;
+        }
+
+        .h_dot .active {
+
+            background-color: #555;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            var aHuad = document.getElementsByClassName("huad");
+
+            var l_huad = aHuad.length;
+
+            for (var i = 0; i < l_huad; i++) {
+
+                dhuad(aHuad[i], 300);
+
+            }
+
+            function dhuad(obj, width) {
+
+
+
+                var Num = 0;
+
+                var oPrev = obj.getElementsByClassName("prev")[0];
+
+                var oNext = obj.getElementsByClassName("next")[0];
+
+                var oHcon = obj.getElementsByClassName("h_con")[0];
+
+                var aConli = oHcon.getElementsByTagName("li");
+
+                var oDot = obj.getElementsByClassName("h_dot")[0];
+
+                var aDotli = oDot.getElementsByTagName("li");
+
+
+
+                for (var j = 0; j < aConli.length; j++) {
+
+                    aConli[j].style.left = width * j + "px";
+
+                    oDot.innerHTML += "<li></li>";
+
+                }
+
+                aDotli[0].className = "active";
+
+
+
+                oNext.onclick = function () {
+
+                    if (Num == aConli.length - 1) {
+
+                        return false;
+
+                    }
+
+                    Num++;
+
+                    oHcon.style.left = (-width * Num) + "px";
+
+                    for (var m = 0; m < aDotli.length; m++) {
+
+                        aDotli[m].className = ""
+
+                    }
+
+                    aDotli[Num].className = "active";
+
+                };
+
+                oPrev.onclick = function () {
+
+                    if (Num == 0) {
+
+                        return false;
+
+                    }
+
+                    Num--;
+
+                    oHcon.style.left = (-width * Num) + "px";
+
+                    for (var m = 0; m < aDotli.length; m++) {
+
+                        aDotli[m].className = ""
+
+                    }
+
+                    aDotli[Num].className = "active";
+
+                };
+
+
+
+                for (var n = 0; n < aDotli.length; n++) {
+
+                    aDotli[n].index = n;
+
+                    aDotli[n].onclick = function () {
+
+                        for (var m = 0; m < aDotli.length; m++) {
+
+                            aDotli[m].className = ""
+
+                        }
+
+                        aDotli[this.index].className = "active";
+
+                        Num = this.index;
+
+                        oHcon.style.left = (-width * Num) + "px";
+
+                    }
+
+                }
+
+            }
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="huad" style="border-color: red">
+
+        <span class="prev"><</span>
+
+        <span class="next">></span>
+
+        <h2 style="color: red">栏目内容</h2>
+
+        <ul class="h_con">
+
+            <li>
+
+                <div class="h_bt">标题名称</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf"><a href="http://baidu.com">连接百度</a></div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+            <li>
+
+                <div class="h_bt">标题名称</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf"><a href="http://baidu.com">连接百度</a></div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+        </ul>
+
+        <ul class="h_dot"></ul>
+
+    </div>
+
+    <div class="huad" style="border-color: green">
+
+        <span class="prev"><</span>
+
+        <span class="next">></span>
+
+        <h2 style="color: green;">栏目内容</h2>
+
+        <ul class="h_con">
+
+            <li>
+
+                <div class="h_bt">标题名称3</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf"><a href="http://baidu.com">连接百度</a></div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+            <li>
+
+                <div class="h_bt">标题名称3</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf"><a href="http://baidu.com">连接百度</a></div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+            <li>
+
+                <div class="h_bt">标题名称3</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf"><a href="http://baidu.com">连接百度</a></div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+
+
+        </ul>
+
+        <ul class="h_dot"></ul>
+
+    </div>
+
+    <div class="huad" style="border-color: orange">
+
+        <span class="prev"><</span>
+
+        <span class="next">></span>
+
+        <h2 style="color: orange;">栏目内容</h2>
+
+        <ul class="h_con">
+
+            <li>
+
+                <div class="h_bt">标题名称</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf"><a href="http://baidu.com">连接百度</a></div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+            <li>
+
+                <div class="h_bt">标题名称2</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf">无连接样式</div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+            <li>
+
+                <div class="h_bt">标题名称3</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf"><a href="http://baidu.com">连接百度</a></div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+            <li>
+
+                <div class="h_bt">标题名称4</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf"><a href="http://baidu.com">连接百度</a></div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+        </ul>
+
+        <ul class="h_dot"></ul>
+
+    </div>
+
+    <div class="huad" style="border-color: #0070a3">
+
+        <span class="prev"><</span>
+
+        <span class="next">></span>
+
+        <h2 style="color: #0070a3">栏目内容</h2>
+
+        <ul class="h_con">
+
+            <li>
+
+                <div class="h_bt">标题名称</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf"><a href="http://baidu.com">连接百度</a></div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+            <li>
+
+                <div class="h_bt">标题名称2</div>
+
+                <div class="h_img"><img src="1.jpg"></div>
+
+                <div class="h_herf">无连接样式</div>
+
+                <div class="h_nr">海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！</div>
+
+            </li>
+
+        </ul>
+
+        <ul class="h_dot"></ul>
+
+    </div>
+
+</body>
+
+</html>

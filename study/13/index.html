@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改文本框的值</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    ul {
+        width: 500px;
+        margin: 20px auto;
+    }
+
+    ul h2 {
+        height: 50px;
+        line-height: 50px;
+        font-size: 24px;
+        background-color: #3a87ad;
+        color: white;
+        padding: 0 20px;
+    }
+
+    li div {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 20px;
+        background-color: #dddddd;
+        margin-top: -1px;
+        border-bottom: 1px solid white;
+        border-top: 1px solid white;
+    }
+
+    .disp {
+        display: none;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var oUl = document.getElementById("list");
+        var aLi = oUl.getElementsByTagName("li");
+
+        var len =aLi.length;
+
+        for (var i=0;i<len;i++){
+            xg(aLi[i]);
+        }
+
+        function xg(oLi) {
+            var aDiv=oLi.getElementsByTagName("div");
+            var oSpan=aDiv[0].getElementsByTagName("span")[0];
+            var oAxg=aDiv[0].getElementsByTagName("a")[0];
+            var oInp=aDiv[1].getElementsByTagName("input")[0];
+            var oAbc=aDiv[1].getElementsByTagName("a")[0];
+            var oAqx=aDiv[1].getElementsByTagName("a")[1];
+
+            oAxg.onclick=function(){
+                aDiv[0].className="disp";
+                aDiv[1].className="";
+                oInp.value=oSpan.innerHTML;
+            };
+            oAbc.onclick=function(){
+                aDiv[0].className="";
+                aDiv[1].className="disp";
+                oSpan.innerHTML=oInp.value;
+            };
+            oAqx.onclick=function(){
+                aDiv[0].className="";
+                aDiv[1].className="disp";
+            };
+        }
+
+    }
+</script>
+<body>
+<ul id="list">
+    <h2>分类名称</h2>
+    <li>
+        <div><span>小的分类标题 </span> <a href="#">修改</a></div>
+        <div class="disp"><input type="text" value=""> <a href="#">保存</a> <a href="#">取消</a></div>
+    </li>
+    <li>
+        <div><span>分类标题2 </span> <a href="#">修改</a></div>
+        <div class="disp"><input type="text" value=""> <a href="#">保存</a> <a href="#">取消</a></div>
+    </li>
+    <li>
+        <div><span>这条是傻逼 </span> <a href="#">修改</a></div>
+        <div class="disp"><input type="text" value=""> <a href="#">保存</a> <a href="#">取消</a></div>
+    </li>
+    <li>
+        <div><span>哈哈哈哈 </span> <a href="#">修改</a></div>
+        <div class="disp"><input type="text" value=""> <a href="#">保存</a> <a href="#">取消</a></div>
+    </li>
+    <li>
+        <div><span>你来改我啊 </span> <a href="#">修改</a></div>
+        <div class="disp"><input type="text" value=""> <a href="#">保存</a> <a href="#">取消</a></div>
+    </li>
+    <li>
+        <div><span>不要改我，不要改我，不要修改我 </span> <a href="#">修改</a></div>
+        <div class="disp"><input type="text" value=""> <a href="#">保存</a> <a href="#">取消</a></div>
+    </li>
+
+</ul>
+
+</body>
+</html>

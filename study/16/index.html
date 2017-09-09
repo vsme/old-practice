@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评分系统</title>
+    <style>
+        .con {
+            width: 380px;
+            height: 100px;
+            position: relative;
+            top: 50px;
+            left: 50%;
+            margin-left: -180px;
+        }
+
+        .con .bt {
+            float: left;
+            font-size: 12px;
+            line-height: 20px;
+            padding-right: 5px;
+
+        }
+
+        .con img {
+            float: left;
+            padding-right: 5px;
+            cursor: pointer;
+        }
+
+        .con .list:after {
+            clear: both;
+            content: "";
+            display: block;
+            margin-bottom: 10px;
+        }
+        .list p{
+            font-size: 12px;
+            line-height: 20px;
+            color: #666;
+            margin:0 0 0 10px;
+            float: left;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+            var aText=["非常不满意！","服务差劲，爱理不理。","服务一般吧。","卖家很好，商品基本满意","太棒了！非常满意，超乎意料。"];
+            var oX = document.getElementById("xx");
+            var aList = oX.getElementsByClassName("list");
+
+            /*var oP=aList[0].getElementsByTagName("p")[0];*/
+
+
+
+            var lilen = aList.length;
+
+            for(var u=0;u<lilen;u++){
+                var aImg1=aList[u].getElementsByTagName("img");
+                var oP1=aList[u].getElementsByTagName("p");
+                var imglen = aImg1.length;
+                var n1=0;
+
+                dj(aImg1,oP1[0],n1);
+
+            }
+
+
+            function dj(aImg, oP, n) {
+
+                function jl(n) {
+                    for (var m = 0; m < imglen; m++) {
+                        aImg[m].src = "images/1.png";
+                    }
+                    if (n < 3) {
+                        for (var j = 0; j < n; j++) {
+                            aImg[j].src = "images/3.png";
+                        }
+                    } else {
+                        for (var j = 0; j < n; j++) {
+                            aImg[j].src = "images/2.png";
+                        }
+                    }
+                }
+
+                for (var i = 0; i < imglen; i++) {
+                    aImg[i].index = i;
+                    aImg[i].onmouseover = function () {
+                        p = this.index + 1;
+                        oP.innerHTML = aText[this.index];
+                        jl(p);
+                    };
+                    aImg[i].onmouseout = function () {
+                        if (n == 0) {
+                            oP.innerHTML = "";
+                        } else {
+                            oP.innerHTML = aText[n - 1];
+                        }
+                        jl(n);
+                    };
+                    aImg[i].onclick = function () {
+                        oP.innerHTML = aText[this.index];
+                        jl(this.index + 1);
+                        n = this.index + 1;
+                    }
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="con" id="xx">
+    <div class="list">
+        <div class="bt">服务态度</div>
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <p></p>
+    </div>
+    <div class="list">
+        <div class="bt">服务态度</div>
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <p></p>
+    </div>
+    <div class="list">
+        <div class="bt">服务态度</div>
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <p></p>
+    </div>
+    <div class="list">
+        <div class="bt">服务态度</div>
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <p></p>
+    </div>
+    <div class="list">
+        <div class="bt">服务态度</div>
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <img src="images/1.png">
+        <p></p>
+    </div>
+
+</div>
+</body>
+</html>

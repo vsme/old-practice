@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡套选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        li{
+            list-style: none;
+        }
+        #con{
+            width: 962px;
+            height: 341px;
+            background-color: #eee;
+            position: relative;
+            left: 50%;
+            margin-left: -480px;
+            margin-top: 20px;
+        }
+        #nav{
+            width: 120px;
+            height: 340px;
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+        #nav li{
+            width: 100%;
+            border: 1px solid #aaa;
+            height: 84px;
+            margin-top: -1px;
+            text-align: center;
+            font-size: 14px;
+        }
+        #bod{
+            width: 840px;
+            height: 341px;
+            position: absolute;
+            left: 122px;
+            overflow: hidden;
+        }
+        #bod img{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #bod li{
+            display: block;
+            background-color: rgba(0,0,0,0.3);
+            text-align: center;
+            float: left;
+            font-size: 14px;
+            line-height: 28px;
+            height: 28px;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            margin-left: -1px;
+        }
+        #bod li:hover{
+            cursor: pointer;
+            background-color: rgba(255,80,0,0.7);
+        }
+
+        #nav li{
+            cursor: pointer;
+        }
+        #nav .active{
+            color: white;
+            background-color: rgba(255,80,0,0.7);
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oNav=document.getElementById("nav");
+            var oBody=document.getElementById("bod");
+            var aImg =[["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"],["img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"],["img/5.jpg","img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"],["img/3.jpg", "img/4.jpg", "img/5.jpg"]] ;
+            var aText =[["第一组图", "随便命名", "哈哈哈", "你不懂的", "你懂得"],["随便命名", "哈哈哈", "你不懂的", "你懂得"],["什么玩意","随便命名", "哈哈哈", "你不懂的", "你懂得"],["哈哈哈", "你不懂的", "你懂得"]] ;
+            var navText =["第一组图", "随便命名", "哈哈哈", "你不懂的"];
+
+
+            /*设置li宽高*/
+            var aLibo=oBody.getElementsByTagName("li");
+
+
+
+            var bigLen=aImg.length;
+            var navH=parseInt(340/bigLen)-1;
+            for(var p=0;p<bigLen;p++){
+                oNav.innerHTML+="<li style='height:"+navH+"px;line-height:"+navH+"px '>"+navText[p]+"</li>";
+               /* var nblpn=aImg[j].length;
+                for(var m=0;m<nblen;m++){
+
+                }*/
+            }
+
+            var aNavli=oNav.getElementsByTagName("li");
+            function qcnav(){
+                for(var i=0;i<bigLen;i++){
+                    aNavli[i].className="";
+                }
+            }
+
+            var str="";
+           var imglj="";
+            var nblen=aImg[0].length;
+            imglj=aImg[0][0];
+
+            for(var i=0;i<nblen;i++){
+                str+="<li>"+aText[0][i]+"</li>";
+            }
+            oBody.innerHTML='<img src='+imglj+'>'+str;
+
+            var x=0;
+
+            aNavli[0].className="active";
+            for(var j=0;j<bigLen;j++){
+                aNavli[j].index =j;
+                imglj=aImg[0][0];
+                var nblen=aImg[j].length;
+
+
+                aNavli[j].onclick=function(){
+                    qcnav();
+                    var nblen=aImg[this.index].length;
+                    this.className="active";
+
+                    str="";
+                    for(var i=0;i<nblen;i++){
+                        str+="<li>"+aText[this.index][i]+"</li>";
+                    }
+                    imglj=aImg[this.index][0];
+                    oBody.innerHTML='<img src='+imglj+'>'+str;
+
+
+                    x=this.index;
+                    var oImg=oBody.getElementsByTagName("img")[0];
+
+
+                    var lblen = aLibo.length;
+                    for(var i=0;i<lblen;i++){
+                        aLibo[i].index=i;
+                        aLibo[i].style.left=i*(840/lblen)+1+"px";
+                        aLibo[i].style.width=840/lblen-1+"px";
+                        aLibo[i].onmouseover=function(){
+                            oImg.src=aImg[x][this.index];
+                        }
+                    }
+
+
+
+                }
+            }
+
+            var oImg=oBody.getElementsByTagName("img")[0];
+
+            var lblen = aLibo.length;
+            for(var i=0;i<lblen;i++){
+                aLibo[i].index=i;
+
+                aLibo[i].style.left=i*(840/lblen)+1+"px";
+                aLibo[i].style.width=840/lblen-1+"px";
+                aLibo[i].onmouseover=function(){
+                    oImg.src=aImg[x][this.index];
+                }
+            }
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+
+<div id="con">
+    <ul id="nav">
+
+    </ul>
+    <ul id="bod">
+        <img src="img/1.jpg">
+        <li>1</li>
+        <li>3</li>
+        <li>45</li>
+        <li>6</li>
+        <li>8</li>
+    </ul>
+
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度全选音乐盒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            padding: 0;
+            width: 800px;
+            margin: 20px auto 0 auto;
+            border: 8px solid #ddd;
+        }
+
+        li {
+            list-style: none;
+            height: 30px;
+            margin-bottom: 1px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        ul li div {
+            display: inline-block;
+            line-height: 30px;
+            font-size: 12px;
+            color: #444;
+            width: 25%;
+        }
+
+        ul li span {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background: url("xz.jpg") no-repeat 0 -12px;
+            position: absolute;
+            top: 8px;
+            left: 5px;
+            cursor: pointer;
+        }
+
+        span.active {
+            background: url("xz.jpg") no-repeat 0 0;
+
+        }
+
+        ul li em {
+            display: inline-block;
+            width: 14px;
+            height: 12px;
+            background: url("xin.png") no-repeat -13px 0;
+            cursor: pointer;
+        }
+
+        em.active {
+            background: url("xin.png") no-repeat 0 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 12px;
+            padding: 3px 8px;
+            border: 1px solid #666;
+            color: #666;
+            margin: 15px 8px 0 0;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #0c0c0d;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oLb = document.getElementById("lb");
+            var aLi = oLb.getElementsByTagName("li");
+            var aBg = ["#fff", "#f3faff", "#f0f0f0"];
+            var len = aLi.length;
+
+
+            var dbbg = "";
+
+            for (var i = 0; i < len; i++) {
+                var oSpan = aLi[i].getElementsByTagName("span")[0];
+                oSpan.index = false;
+                oSpan.className = "";
+
+                aLi[i].index = i;
+                aLi[i].style.background = aBg[i % 2];
+                aLi[i].onmouseover = function () {
+                    this.style.background = aBg[2];
+                };
+                aLi[i].onmouseout = function () {
+                    if (!this.getElementsByTagName("span")[0].index) {
+                        this.style.background = aBg[this.index % 2];
+                    } else {
+                        this.style.background = dbbg;
+                    }
+                };
+
+                var oChall = document.getElementById("chall");
+
+                oSpan.onclick = function () {
+                    if (!this.index) {
+                        this.className = "active";
+                        this.index = true;
+                        this.parentNode.style.background = aBg[2];
+                        dbbg = this.parentNode.style.background;
+                    } else {
+                        this.className = "";
+                        this.index = false;
+                        this.parentNode.style.background = aBg[this.parentNode.index % 2];
+                    }
+
+                    var apd = [];
+                    for (var i = 0; i < len; i++) {
+                        apd.push(aLi[i].getElementsByTagName("span")[0].index);
+                    }
+
+                    apd.sort();//排序
+                    var an = [apd[0]];
+                    for (var i = 1; i < apd.length; i++) {
+                        if (apd[i] !== an[an.length - 1]) {
+                            an.push(apd[i]);
+                        }
+                    }
+
+
+                    if (an.length=1 && an[0] == true) {
+                        oChall.checked = true;
+                    } else {
+                        oChall.checked = false;
+                    }
+                };
+
+                var oEm = aLi[i].getElementsByTagName("em")[0];
+                oEm.index = false;
+                oEm.className = "";
+                oEm.onclick = function () {
+                    if (!this.index) {
+                        this.className = "active";
+                        this.index = true;
+                    } else {
+                        this.className = "";
+                        this.index = false;
+                    }
+                }
+            }
+
+
+            /*全选&反选*/
+            var oAll = document.getElementById("all");
+            var oFan = document.getElementById("fan");
+            oAll.onclick = function () {
+                for (var i = 0; i < len; i++) {
+                    var oSpan = aLi[i].getElementsByTagName("span")[0];
+                    oSpan.index = false;
+                    oSpan.className = "";
+                    oSpan.onclick();
+                }
+            };
+            oFan.onclick = function () {
+                for (var i = 0; i < len; i++) {
+                    var oSpan = aLi[i].getElementsByTagName("span")[0];
+                    oSpan.onclick();
+                }
+            };
+
+            /*复选按钮*/
+            oChall.onclick = function () {
+                if (oChall.checked) {
+                    oAll.onclick();
+                } else {
+                    for (var i = 0; i < len; i++) {
+                        var oSpan = aLi[i].getElementsByTagName("span")[0];
+                        oSpan.index = true;
+                        oSpan.className = "active";
+                        oSpan.onclick();
+                    }
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<ul id="lb">
+    <li>
+        <span></span>
+        <div>张雨声</div>
+        <div>大海</div>
+        <div>专辑《大海》</div>
+        <em></em>
+    </li>
+    <li>
+        <span></span>
+        <div>宋慧乔</div>
+        <div>大冷大冷大</div>
+        <div>《打愣》</div>
+        <em></em>
+    </li>
+    <li>
+        <span></span>
+        <div>张雨声</div>
+        <div>水手</div>
+        <div>专辑《大海》</div>
+        <em></em>
+    </li>
+    <li>
+        <span class="active"></span>
+        <div>张信哲</div>
+        <div>白月光</div>
+        <div>《思念》</div>
+        <em class="active"></em>
+    </li>
+    <li>
+        <span></span>
+        <div>张信哲</div>
+        <div>风吹稻花香</div>
+        <div>专辑《不知道》</div>
+        <em></em>
+    </li>
+    <li>
+        <span></span>
+        <div>周杰伦</div>
+        <div>摩羯座</div>
+        <div>《听妈妈的话》</div>
+        <em></em>
+    </li>
+    <li>
+        <span class="active"></span>
+        <div>张信哲</div>
+        <div>白月光</div>
+        <div>《思念》</div>
+        <em class="active"></em>
+    </li>
+    <li>
+        <span></span>
+        <div>张信哲</div>
+        <div>风吹稻花香</div>
+        <div>专辑《不知道》</div>
+        <em></em>
+    </li>
+    <li>
+        <span></span>
+        <div>周杰伦</div>
+        <div>摩羯座</div>
+        <div>《听妈妈的话》</div>
+        <em></em>
+    </li>
+
+</ul>
+<div style="margin: 0 auto;width: 814px">
+    <input type="checkbox" id="chall" style="margin: 3px 10px">
+    <a href="javascript:" id="all">全选</a>
+    <a href="javascript:" id="fan">反选</a>
+</div>
+
+</body>
+</html>

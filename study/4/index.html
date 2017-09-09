@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for循环</title>
+
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: #0066cc;
+            color: white;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+
+        .red {
+            background-color: #ff6000;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+
+            var aDiv = document.getElementsByTagName("div");
+
+            btn1.onclick = function () {
+
+                var str = "";
+                for (var i = 0; i < 100; i++) {
+                    str += "<div>" + (i + 1) + "</div>";
+                }
+                document.body.innerHTML += str;
+
+
+                var str2 = "";
+                for (var i = 0; i < 11; i++) {
+                    str2 += "<div>" + (i + 101) + "</div>"
+                }
+                document.body.innerHTML += str2;
+
+
+                for (var v = 0; v < 100; v++) {
+                    aDiv[v].style.left = 10 + (v % 10) * 60 + "px";
+                    aDiv[v].style.top = 30 + (parseInt(v / 10) * 60) + "px";
+                    /*if (v < 10) {
+                     aDiv[v].style.left = 10 + v * 60 + "px";
+                     aDiv[v].style.top = 10 + (0 * 60) + "px";
+
+                     } else if (9 < v && v < 20) {
+                     aDiv[v].style.left = 10 + (v - 10) * 60 + "px";
+                     aDiv[v].style.top = 10 + (1 * 60) + "px";
+                     } else if (19 < v && v < 30) {
+                     aDiv[v].style.left = 10 + (v - 20) * 60 + "px";
+                     aDiv[v].style.top = 10 + (2 * 60) + "px";
+                     } else if (29 < v && v < 40) {
+                     aDiv[v].style.left = 10 + (v - 30) * 60 + "px";
+                     aDiv[v].style.top = 10 + (3 * 60) + "px";
+                     } else if (39 < v && v < 50) {
+                     aDiv[v].style.left = 10 + (v - 40) * 60 + "px";
+                     aDiv[v].style.top = 10 + (4 * 60) + "px";
+                     } else if (49 < v && v < 60) {
+                     aDiv[v].style.left = 10 + (v - 50) * 60 + "px";
+                     aDiv[v].style.top = 10 + (5 * 60) + "px";
+                     }else if (59 < v && v < 70) {
+                     aDiv[v].style.left = 10 + (v - 60) * 60 + "px";
+                     aDiv[v].style.top = 10 + (6 * 60) + "px";
+                     }else if (69 < v && v < 80) {
+                     aDiv[v].style.left = 10 + (v - 70) * 60 + "px";
+                     aDiv[v].style.top = 10 + (7 * 60) + "px";
+                     }else if (79 < v && v < 90) {
+                     aDiv[v].style.left = 10 + (v - 80) * 60 + "px";
+                     aDiv[v].style.top = 10 + (8 * 60) + "px";
+                     }else if (89 < v && v < 100) {
+                     aDiv[v].style.left = 10 + (v - 90) * 60 + "px";
+                     aDiv[v].style.top = 10 + (9 * 60) + "px";
+                     }*/
+                }
+
+
+                for (var v = 100; v < 111; v++) {
+
+                    aDiv[v].style.left = 620 + (v - 100) * 60 + "px";
+                    aDiv[v].className = "red";
+
+                    if (v < 106) {
+                        aDiv[v].style.top = 30 + ((v - 100) * 60) + "px";
+                    } else {
+                        aDiv[v].style.top = 30 + ((110 - v) * 60) + "px";
+                    }
+                }
+
+
+            };
+
+
+
+        };
+
+
+    </script>
+
+</head>
+<body>
+<input type="button" id="btn1" value="生成">
+<a href="1.html" target="_blank">本节其他练习1</a>
+<a href="2.html" target="_blank">本节其他练习2</a>
+
+</body>
+</html>
